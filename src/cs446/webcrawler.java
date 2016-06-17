@@ -36,6 +36,7 @@ public class webcrawler extends Thread {
 	}
 	
 	// can create multi thread crawlers ##not working without syncronized linkedlist!
+	@Override
 	public void run() {
 		this.crawl();
 	}
@@ -397,7 +398,7 @@ public class webcrawler extends Thread {
 			for (int i = 0; i < links.length; i++) {
 				text += links[i] + "\n";
 			}
-			BufferedWriter out = new BufferedWriter(new FileWriter("links" + maxlinks + ".txt"));
+			BufferedWriter out = new BufferedWriter(new FileWriter("outputs/links" + maxlinks + ".txt"));
 			out.write(text);
 			out.close();
 		} catch (IOException e) {
